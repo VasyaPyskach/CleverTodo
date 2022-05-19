@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CleverToDo</string>
+
+    <string name="login_empty_domain_error">Please enter domain</string>
+    <string name="login_error">Can not login</string>
+
+</resources>
