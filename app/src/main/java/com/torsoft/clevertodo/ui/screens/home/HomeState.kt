@@ -8,4 +8,6 @@ sealed interface HomeState {
 
     data class Data(val items: List<HomeTodoItem>) : HomeState
 
+    data class Error(val message: String) : HomeState
+
 }

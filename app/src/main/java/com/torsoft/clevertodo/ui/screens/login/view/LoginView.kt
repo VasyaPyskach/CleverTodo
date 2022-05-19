@@ -1,11 +1,13 @@
 package com.torsoft.clevertodo.ui.screens.login.view
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.torsoft.clevertodo.R
 
@@ -57,4 +59,17 @@ fun LoginView(
         }
     }
 
+}
+
+@Composable
+@Preview
+fun LoginView_Preview() {
+    LoginView(
+        modifier = Modifier.background(MaterialTheme.colors.background),
+        isLoading = false,
+        domain = "domain",
+        domainError = "some error",
+        onDomainChanged = {}) {
+
+    }
 }

@@ -5,7 +5,9 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun HomeErrorView(
-    modifier: Modifier = Modifier
-){
+    modifier: Modifier = Modifier,
+    message: String,
+    onRetryClick: () -> Unit
+) {
     //TODO Implement UI
 }

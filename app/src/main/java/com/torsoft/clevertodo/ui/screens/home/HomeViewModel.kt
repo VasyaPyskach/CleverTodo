@@ -13,6 +13,18 @@ class HomeViewModel @Inject constructor(
         loadTodoList()
     }
 
+    fun onLaunched(){
+        loadTodoList()
+    }
+
+    fun onCheckChanged(id: Int, isChecked: Boolean){
+
+    }
+
+    fun onRetryClick(){
+
+    }
+
     private fun loadTodoList(){
 
     }
