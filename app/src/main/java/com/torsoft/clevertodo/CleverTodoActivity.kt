@@ -11,6 +11,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.torsoft.clevertodo.ui.screens.home.HomeScreen
 import com.torsoft.clevertodo.ui.screens.login.LoginScreen
 import com.torsoft.clevertodo.ui.screens.splash.SplashScreen
 import com.torsoft.clevertodo.ui.theme.CleverToDoTheme
@@ -38,6 +39,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(Routes.login) {
                             LoginScreen(navController, hiltViewModel())
+                        }
+                        composable(Routes.home) {
+                            HomeScreen(navController, hiltViewModel())
                         }
 
                     }

@@ -4,6 +4,6 @@ sealed interface LoginEvent {
 
     object NavigateToHome : LoginEvent
 
-    data class ShowLoginError(val messageResId: Int) : LoginEvent
+    data class ShowLoginError(val message: String) : LoginEvent
 
 }

@@ -12,7 +12,7 @@ class SplashViewModel @Inject constructor(
     private val loginInteractor: LoginInteractor
 ) : BaseViewModel<SplashEvent, SplashState>(SplashState) {
 
-    init {
+    fun onLaunched(){
         checkUserIsLogged()
     }
 

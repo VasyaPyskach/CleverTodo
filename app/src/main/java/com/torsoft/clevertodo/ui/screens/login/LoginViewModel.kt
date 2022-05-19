@@ -1,5 +1,6 @@
 package com.torsoft.clevertodo.ui.screens.login
 
+import android.content.Context
 import androidx.lifecycle.viewModelScope
 import com.torsoft.clevertodo.R
 import com.torsoft.clevertodo.domain.login.interactor.LoginInteractor
@@ -9,6 +10,7 @@ import com.torsoft.clevertodo.ui.validator.base.fold
 import com.torsoft.clevertodo.ui.validator.base.onFailure
 import com.torsoft.clevertodo.ui.validator.base.onSuccess
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -17,7 +19,8 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val domainValidator: DomainValidator,
-    private val loginInteractor: LoginInteractor
+    private val loginInteractor: LoginInteractor,
+    @ApplicationContext private val context: Context
 ) : BaseViewModel<LoginEvent, LoginState>(
     LoginState()
 ) {
@@ -33,7 +36,7 @@ class LoginViewModel @Inject constructor(
         domainValidator.validate(viewState.domain)
             .onSuccess { login() }
             .onFailure {
-                viewState = viewState.copy(domainError = it)
+                viewState = viewState.copy(domainError = context.getString(it))
             }
     }
 
@@ -46,7 +49,7 @@ class LoginViewModel @Inject constructor(
             }.onSuccess {
                 sendEvent(LoginEvent.NavigateToHome)
             }.onFailure {
-                sendEvent(LoginEvent.ShowLoginError(R.string.login_error))
+                sendEvent(LoginEvent.ShowLoginError(context.getString(R.string.login_error)))
             }
 
             viewState = viewState.copy(isLoading = false)
